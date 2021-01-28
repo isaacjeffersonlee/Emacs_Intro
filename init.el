@@ -4,9 +4,6 @@
 ;; S-<key> is shift e.t.c
 ;; To highlight text, either use mouse cursor or C-space
 ;; To Comment text, highlight it and then press C-x C-;
-;; To cut the text, press C-w.
-;; To copy the text, press M-w.
-;; To paste the text, press C-y.
 ;; To search C-s
 ;; To type a command, M-x
 ;; To find a file C-x C-f
@@ -23,8 +20,8 @@
 
 ;; R specific bindings
 ;; To open an R interpreter do M-x R
-;; To send the whole buffer (currently opened file) to the interpreter C-c C-l
-;; To send the currently selected region to the buffer (more useful) C-c C-c
+;; To send the whole buffer (currently opened file) to the interpreter C-S-q
+;; To send the currently selected region to the buffer (more useful) C-q
 ;; -------------------------- ## PACKAGE MANAGER ##  --------------------------
 
 (require 'package)
@@ -71,6 +68,10 @@ There are two things you can do about this warning:
 
 ;; ------------------------- ## Useful packages ##  ------------------------------
 
+(cua-mode t)
+(setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
+(transient-mark-mode 1) ;; No region when it is not highlighted
+(setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
 
 (use-package undo-tree
   :ensure t
@@ -137,7 +138,9 @@ There are two things you can do about this warning:
 :ensure t
 :init)
 
-
+(global-set-key (kbd "C-q") 'ess-eval-region-or-function-or-paragraph-and-step)
+(global-set-key (kbd "C-S-q") nil)
+(global-set-key (kbd "C-S-q") 'ess-load-file)
 ;; ------------------------- ## CUSTOM SET VARIABLES  ##  ---------------------
 ;; DON'T EDIT THIS PART
 
