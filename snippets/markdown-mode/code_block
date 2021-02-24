@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: rmarkdown code block 
+# key: cb
+# --
+
+\`\`\`{r}
+
+$0
+
+\`\`\`

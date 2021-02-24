@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: r markdown template document 
+# key: template
+# --
+---
+title: "$1"
+author: "$2"
+date: `(format-time-string "%d/%m/%Y")`
+header-includes:
+  - \usepackage{fancyhdr}
+output:
+  pdf_document:
+    highlight: pygment
+---
+\pagestyle{fancy}
+\fancyhead[L]{$3}
+\fancyhead[R]{$4}
+\definecolor{shadecolor}{RGB}{251,251,251}
+
+# Example Section Heading
+## Example Section subheading
+### Example Section sub sub heading
+#### e.t.c
+
+$0
+
+# Example Code Block
+
+\`\`\`{r}
+
+data <- head(mtcars)
+plot(data)
+
+\`\`\`
+
+
+
+

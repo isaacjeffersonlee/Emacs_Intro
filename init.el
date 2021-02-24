@@ -138,9 +138,22 @@ There are two things you can do about this warning:
 :ensure t
 :init)
 
-(global-set-key (kbd "C-q") 'ess-eval-region-or-function-or-paragraph-and-step)
-(global-set-key (kbd "C-S-q") nil)
-(global-set-key (kbd "C-S-q") 'ess-load-file)
+(define-key ess-mode-map (kbd "C-q") nil)
+(define-key ess-mode-map (kbd "C-q") 'ess-eval-region-or-function-or-paragraph-and-step)
+
+;; R markdown
+;; Use M-n-e to export 
+(use-package poly-R
+:ensure t
+:init)
+
+;; Snippets
+(use-package yasnippet
+:ensure t
+:init
+(yas-global-mode 1))
+
+
 ;; ------------------------- ## CUSTOM SET VARIABLES  ##  ---------------------
 ;; DON'T EDIT THIS PART
 
